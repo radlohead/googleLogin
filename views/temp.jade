@@ -1,0 +1,27 @@
+html
+    head
+        title Google Login Sample
+        script(src="https://plus.google.com/js/client:platform.js" async defer)
+        meta(name="google-signin-client_id" content="208904337784-5nnmpiil4ij1bak8tra7aef61hr0bvl7.apps.googleusercontent.com")
+    body
+        h1 Jade로 google 로그인 구현
+        //Login
+        div(class="g-signin2" data-onsuccess="onSignIn")
+        //Log out
+        a(href="#" id="signOut" onclick="signOut()")
+            Sign Out
+    script(type="text/javascript").
+        function onSignIn(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        function signOut() {
+            const auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
