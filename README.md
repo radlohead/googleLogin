@@ -1,6 +1,6 @@
-##google API를 이용한 로그인 기능
+## google API를 이용한 로그인 기능
 
-####로컬 실행 방법
+#### 로컬 실행 방법
 
  - 클론 후 npm install
  - npm start
